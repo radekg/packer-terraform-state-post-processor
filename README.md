@@ -1,3 +1,5 @@
+[Code compiles but does not work](https://github.com/hashicorp/packer/issues/7502).
+
 ```
 "post-processors": [
     {
