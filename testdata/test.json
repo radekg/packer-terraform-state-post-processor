@@ -1,0 +1,25 @@
+{
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "ami_name": "packer-terraform-state-post-processor-test-base",
+        "force_deregister": true,
+        "instance_type": "m3.medium",
+        "region": "eu-central-1",
+        "source_ami": "ami-337be65c",
+        "ssh_username": "centos"
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "ansible",
+        "playbook_file": "ansible/playbook-base-image.yml"
+      }
+    ],
+    "post-processors": [
+        {
+            "type": "terraform-state",
+            "terraform_file_path": "/Users/rad/dev/golang/src/github.com/radekg/packer-terraform-state-post-processor/testdata/terraform.tf"
+        }
+    ]
+  }
